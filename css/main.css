@@ -308,6 +308,30 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Livvic";
+  font-style: italic;
+  font-weight: 500;
+  src: local(""), url("../fonts/livvic-v13-latin-500italic.woff2") format("woff2"), url("../fonts/livvic-v13-latin-500italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Livvic";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("../fonts/livvic-v13-latin-600.woff2") format("woff2"), url("../fonts/livvic-v13-latin-600.woff") format("woff");
+}
+@font-face {
+  font-family: "Livvic";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/livvic-v13-latin-700.woff2") format("woff2"), url("../fonts/livvic-v13-latin-700.woff") format("woff");
+}
+@font-face {
+  font-family: "Livvic";
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("../fonts/livvic-v13-latin-700italic.woff2") format("woff2"), url("../fonts/livvic-v13-latin-700italic.woff") format("woff");
+}
 html {
   height: 100%;
 }
@@ -326,13 +350,29 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Livvic", "Arial", sans-serif;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
+  background-color: #014E56;
 }
 
 main {
   flex-grow: 1;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .visually-hidden {
@@ -347,34 +387,128 @@ main {
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 1158px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.hero__container {
-  background-color: lightgreen;
+.header {
+  padding-top: 48px;
 }
-.hero__wrapper {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.header__wrapper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.hero__box {
-  width: 500px;
-  min-height: 600px;
-  border: 2px solid black;
-  background-image: url("./../../images/Bitmap.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.header__logo {
+  margin-right: 80px;
+}
+.header__btn, .header__btn-close {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 20px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__burger, .header__close {
+  width: 20px;
+  height: 17px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media only screen and (min-width: 600px) {
+  .header__btn {
+    display: none;
+  }
+}
+.header__right {
+  position: absolute;
+  top: -100%;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1, 77, 86, 0.3);
+  display: flex;
+  justify-content: flex-end;
+  transition: all 1s ease;
+}
+@media only screen and (min-width: 600px) {
+  .header__right {
+    position: static;
+    max-width: 870px;
+    width: 100%;
+    height: auto;
+  }
+}
+.header__nav {
+  background-color: #255257;
+  max-width: 255px;
+  width: 100%;
+  padding: 56px 25px 25px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media only screen and (min-width: 600px) {
+  .header__nav {
+    padding: 0;
+    flex-direction: row;
+    background: none;
+    max-width: 870px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.header__btn-close {
+  margin-bottom: 39px;
+  align-self: flex-end;
+}
+@media only screen and (min-width: 600px) {
+  .header__btn-close {
+    display: none;
+  }
+}
+.header__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+@media only screen and (min-width: 600px) {
+  .header__list {
+    flex-direction: row;
+    margin: 0;
+  }
+}
+.header__item + .header__item {
+  margin-top: 24px;
+}
+@media only screen and (min-width: 600px) {
+  .header__item + .header__item {
+    margin: 0;
+    margin-left: 40px;
+  }
+}
+.header__link {
+  color: white;
+}
+.header__call {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 10px 33px;
+  border: 2px solid #FFFFFF;
+  border-radius: 24px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .hero__box {
-    background-image: url("./../../images/Bitmap2x.png");
-  }
+.header--open .header__right {
+  top: 0;
 }/*# sourceMappingURL=main.css.map */
